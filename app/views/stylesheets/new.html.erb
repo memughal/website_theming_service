@@ -1,3 +1,14 @@
 <% if flash[:url] %>
   <%= flash[:url] %>
 <% end %>
+<%= form_for @stylesheet, url: {action: "create"} do |f| %>
+
+  <%= f.label :link_color, 'Link Color'%>
+  <%= f.select(:link_color, options_for_select([
+    ['Grey', '#000'],
+    ['Green', '#009999'],
+    ['Blue', '#5bc0de']
+    ]) ) %>
+  <%= f.submit 'Create'%>
+
+  <% end %>
