@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'stylesheets/new'
+
+  post 'create' => 'stylesheets#create'
+
+  get 'new' => 'stylesheets#new'
 
   root 'stylesheets#new'
 

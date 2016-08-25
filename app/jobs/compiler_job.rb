@@ -1,10 +1,10 @@
 require 'less'
 class CompilerJob < ActiveJob::Base
 
-  def self.compile(filename)
+  def self.compile(stylesheet, filename)
 
     user_variables = ""
-    user_variables << "@link-color:#009999;"
+    user_variables << "@link-color:#{stylesheet.link_color};"
 
     if !user_variables.empty?
       Delayed::Worker.logger.add(Logger::INFO, 'started writing')
