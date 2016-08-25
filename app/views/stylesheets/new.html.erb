@@ -3,12 +3,27 @@
 <% end %>
 <%= form_for @stylesheet, url: {action: "create"} do |f| %>
 
+  <%= f.label :text_color, 'Link Color'%>
+  <%= f.select(:text_color, options_for_select([
+    ['Grey', '#000'],
+    ['Green', '#009999'],
+    ['Blue', '#5bc0de']
+    ]) ) %>
+
   <%= f.label :link_color, 'Link Color'%>
   <%= f.select(:link_color, options_for_select([
     ['Grey', '#000'],
     ['Green', '#009999'],
     ['Blue', '#5bc0de']
     ]) ) %>
+
+  <%= f.label :font_family, 'Link Color'%>
+  <%= f.select(:font_family, options_for_select([
+    ['Sans Serif', '"Helvetica Neue", Helvetica, Arial, sans-serif'],
+    ['Serif', 'Georgia, "Times New Roman", Times, serif'],
+    ['Monospace', 'Menlo, Monaco, Consolas, "Courier New", monospace']
+    ]) ) %>
+
   <%= f.submit 'Create'%>
 
   <% end %>
