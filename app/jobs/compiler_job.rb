@@ -1,9 +1,7 @@
 require 'less'
 class CompilerJob < ActiveJob::Base
 
-  def self.compile
-    timestamp = Time.now.to_i
-    filename = "custom_css_#{timestamp}.css"
+  def self.compile(filename)
 
     user_variables = ""
     user_variables << "@link-color:#009999;"
