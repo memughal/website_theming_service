@@ -31,6 +31,10 @@ gem 'jbuilder', '~> 2.5'
 gem "therubyracer"
 gem "less"
 
+# Use delayed jobs to run aync tasks
+gem "daemons"
+gem 'delayed_job_active_record'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
