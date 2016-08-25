@@ -35,6 +35,9 @@ gem "less"
 gem "daemons"
 gem 'delayed_job_active_record'
 
+# Use bootstrap for the front end
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
