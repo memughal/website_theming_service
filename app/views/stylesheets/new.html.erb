@@ -1,10 +1,17 @@
 <% if flash[:url] %>
   <%= flash[:url] %>
 <% end %>
+<% if @stylesheet.errors.any? %>
+  <% @stylesheet.errors.full_messages.each do |msg| %>
+    <%=msg%>
+  <% end %>
+<% end %>
+
 <%= form_for @stylesheet, url: {action: "create"} do |f| %>
 
   <%= f.label :text_color, 'Link Color'%>
   <%= f.select(:text_color, options_for_select([
+    [include_blank: 'None'],
     ['Grey', '#000'],
     ['Green', '#009999'],
     ['Blue', '#5bc0de']
@@ -12,6 +19,7 @@
 
   <%= f.label :link_color, 'Link Color'%>
   <%= f.select(:link_color, options_for_select([
+    [include_blank: 'None'],
     ['Grey', '#000'],
     ['Green', '#009999'],
     ['Blue', '#5bc0de']
@@ -19,6 +27,7 @@
 
   <%= f.label :font_family, 'Link Color'%>
   <%= f.select(:font_family, options_for_select([
+    [include_blank: 'None'],
     ['Sans Serif', '"Helvetica Neue", Helvetica, Arial, sans-serif'],
     ['Serif', 'Georgia, "Times New Roman", Times, serif'],
     ['Monospace', 'Menlo, Monaco, Consolas, "Courier New", monospace']
