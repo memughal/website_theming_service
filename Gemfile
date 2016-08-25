@@ -27,6 +27,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use less.rb for compiling less file to css
+gem "therubyracer"
+gem "less"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
