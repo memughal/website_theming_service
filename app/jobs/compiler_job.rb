@@ -9,6 +9,7 @@ class CompilerJob < ActiveJob::Base
     user_variables << "@link-color:#009999;"
 
     if !user_variables.empty?
+      Delayed::Worker.logger.add(Logger::INFO, 'started writing')
 
       parser = Less::Parser.new(paths: [Rails.root.join('vendor', 'assets', 'stylesheets', 'less')])
       less = ('@import \'bootstrap.less\';' + user_variables)
@@ -17,6 +18,8 @@ class CompilerJob < ActiveJob::Base
 
       path = Rails.root.join('public', filename)
       File.open(path, 'w') { |file| file.write(content) }
+
+      Delayed::Worker.logger.add(Logger::INFO, 'done writing')
     end
   end
 end

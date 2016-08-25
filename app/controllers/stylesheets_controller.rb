@@ -1,6 +1,6 @@
 require 'less'
 class StylesheetsController < ApplicationController
   def new
-    CompilerJob.compile
+    CompilerJob.delay.compile
   end
 end
